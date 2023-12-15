@@ -15,7 +15,7 @@ export const Template = props => {
                 <div className="content-wrapper">
 
                     {
-                        props.childern
+                        props.children
                     }
 
                 </div>
