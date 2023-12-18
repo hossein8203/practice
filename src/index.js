@@ -5,6 +5,9 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Template} from "./Template/Template";
 import "@fortawesome/fontawesome-free/css/all.css"
 import {Calendar} from "./calendar/Calendar";
+import {Auth} from "./Authentication/Auth";
+import {LogIn} from "./Authentication/LogIn";
+import {SignUp} from "./Authentication/SignUp";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +15,8 @@ root.render(
     <BrowserRouter>
         <Routes>
             <Route path={"/"} element={<Template><Calendar/></Template>}/>
+            <Route path={"/login"} element={<Auth><LogIn/></Auth>}/>
+            <Route path={"/signup"} element={<Auth><SignUp/></Auth>}/>
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

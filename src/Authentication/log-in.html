@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Whale Log In</title>
+    <link href="images/logo/whale-light.png" rel="icon">
+    <link href="css/styleSheets.css" rel="stylesheet">
+    <link href="css/registerPage.css" rel="stylesheet">
+</head>
+<body>
+<section class="loading">
+    <div class="container d-flex align-items-center justify-content-center min-vh-100">
+        <div class="loading-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</section>
+
+<section class="bgImage" data-background="images/register-bg.avif" id="register">
+    <div class="container py-2">
+        <div id="register-switch">
+            <a class="sign-up " href="sign-up.html">Sign Up</a>
+            <a class="log-in register-focused" href="#">Log In</a>
+        </div>
+        <div id="register-wrapper">
+            <div class="register" id="log-in">
+                <h4 class="register-title">
+                    Welcome Back!
+                </h4>
+                <form action="#">
+                    <div class="row gx-2 gy-0">
+                        <div class="col-12">
+                            <label class="register-label" for="log-in-email">Email</label>
+                            <input class="register-field" id="log-in-email" name="logInEmail"
+                                   placeholder="Enter Your Email" required
+                                   type="email">
+                        </div>
+
+                        <div class="col-12">
+                            <label class="register-label" for="log-in-password">Password</label>
+                            <input class="register-field password" id="log-in-password" name="logInPassword"
+                                   placeholder="Enter Your Password"
+                                   required type="password">
+                            <button class="show-pass" type="button">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="register-sub" type="submit">
+                                 <span>
+                                     Log In
+                                 </span>
+                            </button>
+                        </div>
+
+                        <div class="col-6">
+                            <a class="pass-forgot d-none" href="#">
+                                Forgot your password?
+                            </a>
+                        </div>
+
+                        <div class="col-6 d-flex align-items-center justify-content-center mt-2">
+                            <p class="switch-link">
+                                Don't have an account?
+                                <a class="inner-switcher" href="sign-up.html">
+                                    Sign up
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="col-12 mt-5 d-flex justify-content-center">
+                            <ul class="socials">
+                                <li>
+                                    <a href="#">
+                                        <img alt="whale" src="images/logo/whale-light.png">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="instagram" href="#">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="twitter" href="#">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="telegram" href="#">
+                                        <i class="fa-brands fa-telegram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="facebook" href="#">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <button id="close-register" type="button">
+                <a href="index.html">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<script src="scripts/jquery-3.7.0.min.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/bootstrap.bundle.min.js"></script>
+<script src="scripts/jquery.validate.min.js"></script>
+<!--<script src="scripts/mainScripts.js"></script>-->
+<script src="scripts/registerPage.js"></script>
+
+</body>
+</html>

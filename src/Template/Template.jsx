@@ -1,4 +1,4 @@
-import {NavBar} from "./NavBar.jsx;";
+import {NavBar} from "./NavBar";
 import {SideBar} from "./SideBar";
 
 export const Template = props => {
