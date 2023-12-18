@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom"
+
 export const NavBar = props =>{
 
 
@@ -9,7 +11,7 @@ export const NavBar = props =>{
                         <a className="nav-link" data-widget="" href="#"><i className="fa fa-bars"></i></a>
                     </li>
                     <li className="nav-item d-none d-sm-inline-block">
-                        <a href="../../index3.html" className="nav-link">خانه</a>
+                        <Link to="/" className="nav-link">خانه</Link>
                     </li>
                     <li className="nav-item d-none d-sm-inline-block">
                         <a href="#" className="nav-link">تماس</a>

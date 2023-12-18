@@ -1,28 +1,66 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useState} from "react";
+import axios from "axios";
+import {toast} from "react-toastify";
 
-export const LogIn=props=>{
+export const LogIn = props => {
+    const [user, setUser] = useState({
+        username: "",
+        password: ""
+    })
 
-    return(
+    const navigate = useNavigate()
+
+    const loginHandler = async (e) => {
+        e.preventDefault()
+
+        try {
+            const result = await axios.post('http://localhost:4000/api/login', user)
+            const {token} = result.data
+            localStorage.setItem("token",token)
+            console.log("success")
+
+        } catch (err) {
+
+            console.log(err)
+
+            if (err.response && err.response.status && err.response.status == 401){
+                toast(err.response.data.error , {
+                    position:"top-center"
+                })
+            }
+        }
+    }
+
+    const inputHandler=e=>{
+        const {name,value} = e.target
+        const u = {...user}
+        u[name] = value
+        setUser(u)
+    }
+
+
+    return (
         <>
             <div id="register-wrapper">
                 <div className="register" id="log-in">
                     <h4 className="register-title">
                         خوش برگشتید
                     </h4>
-                    <form action="#">
+                    <form action="#" onSubmit={loginHandler}>
                         <div className="row gx-2 gy-0">
                             <div className="col-12">
-                                <label className="register-label" htmlFor="log-in-email">ایمیل</label>
-                                <input className="register-field" id="log-in-email" name="logInEmail"
-                                       placeholder="Enter Your Email" required
-                                       type="email"/>
+                                <label className="register-label" htmlFor="log-in-email">نام کاربری</label>
+                                <input className="register-field" id="log-in-email" name="username"
+                                       placeholder="نام کاربری" required
+                                       type="text" onInput={inputHandler}/>
                             </div>
 
                             <div className="col-12">
                                 <label className="register-label" htmlFor="log-in-password">رمز</label>
-                                <input className="register-field password" id="log-in-password" name="logInPassword"
-                                       placeholder="Enter Your Password"
-                                       required type="password"/>
+                                <input className="register-field password" id="log-in-password" name="password"
+                                       placeholder="رمز عبور"
+                                       required type="password" onInput={inputHandler}/>
 
                             </div>
 

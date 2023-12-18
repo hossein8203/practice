@@ -11,8 +11,8 @@ export const Auth=(props)=>{
             <section className="bgImage" data-background="images/register-bg.avif" id="register">
                 <div className="container py-2">
                     <div id="register-switch">
-                        <Link className="sign-up " to="/signup">Sign Up</Link>
-                        <Link className="log-in register-focused" to="/login">Log In</Link>
+                        <Link className="sign-up " to="/signup">ثبت نام</Link>
+                        <Link className="log-in register-focused" to="/login">ورود</Link>
                     </div>
                     {
                         props.children

@@ -66,7 +66,7 @@ label.error {
   padding-left: 5px;
   margin-top: -5px;
   display: block;
-  font-family: source-sans, sans-serif;
+  /*font-family: source-sans, sans-serif;*/
 }
 
 .logo {
@@ -99,7 +99,7 @@ label.error {
 .sub-section-title {
   margin-top: 10px;
   text-align: center;
-  font-family: rale-way, sans-serif;
+  /*font-family: rale-way, sans-serif;*/
   font-size: 14px;
   color: #5e5e5e;
 }
@@ -297,7 +297,7 @@ ul.socials li a:hover {
 #register-switch a.register-focused {
   background: linear-gradient(90deg, #1D5D9B 0%, #75C2F6 100%);
   color: #fff;
-  font-family: source-sans, sans-serif;
+  /*font-family: source-sans, sans-serif;*/
 }
 #register-switch span {
   display: block;
@@ -415,6 +415,7 @@ ul.socials li a:hover {
   border-radius: 30px;
   color: #fff;
   background: linear-gradient(90deg, #1D5D9B 0%, #75C2F6 100%);
+  cursor: pointer;
 }
 .register-sub::before, .register-sub::after {
   content: "";
