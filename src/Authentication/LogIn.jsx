@@ -1,8 +1,8 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
-import axios from "axios";
 import {toast} from "react-toastify";
-import {Client} from "../ApiService";
+import {useAxios} from "../ApiService";
+import queryString from "query-string"
 
 export const LogIn = props => {
     const [user, setUser] = useState({
@@ -11,15 +11,26 @@ export const LogIn = props => {
     })
 
     const navigate = useNavigate()
+    const location = useLocation()
+
 
     const loginHandler = async (e) => {
         e.preventDefault()
 
         try {
-            const result = await Client.post("/login", user)
+            const result = await useAxios.post("/login", user)
             const {token} = result.data
             localStorage.setItem("token", token)
             console.log("success")
+
+            let destination = '/'
+            const searched = queryString.parse(location.search)["url"]
+            console.log(searched)
+            if(searched !== " "){
+                destination = searched
+            }
+            navigate(destination ,{replace : true})
+            console.log(destination)
 
         } catch (err) {
 

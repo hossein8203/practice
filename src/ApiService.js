@@ -7,7 +7,6 @@ const instance = axios.create({
 })
 
 const token = localStorage.getItem('token')
-console.log(token)
 
 
 instance.defaults.headers.common["authorization"] = `Bearer ${token}`
@@ -21,7 +20,7 @@ instance.interceptors.response.use(null, error => {
     })
 })
 
-export const Client = {
+export const useAxios = {
     get: instance.get,
     post: instance.post,
     put: instance.put,
