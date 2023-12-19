@@ -2,6 +2,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
 import {toast} from "react-toastify";
+import {Client} from "../ApiService";
 
 export const LogIn = props => {
     const [user, setUser] = useState({
@@ -15,25 +16,25 @@ export const LogIn = props => {
         e.preventDefault()
 
         try {
-            const result = await axios.post('http://localhost:4000/api/login', user)
+            const result = await Client.post("/login", user)
             const {token} = result.data
-            localStorage.setItem("token",token)
+            localStorage.setItem("token", token)
             console.log("success")
 
         } catch (err) {
 
             console.log(err)
 
-            if (err.response && err.response.status && err.response.status == 401){
-                toast(err.response.data.error , {
-                    position:"top-center"
+            if (err.response && err.response.status && err.response.status == 401) {
+                toast(err.response.data.error, {
+                    position: "top-center"
                 })
             }
         }
     }
 
-    const inputHandler=e=>{
-        const {name,value} = e.target
+    const inputHandler = e => {
+        const {name, value} = e.target
         const u = {...user}
         u[name] = value
         setUser(u)

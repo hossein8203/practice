@@ -3,19 +3,29 @@ import {toast} from "react-toastify";
 
 
 const instance = axios.create({
-    baseURL : "http://localhost:4000/api/"
+    baseURL: "http://localhost:4000/api/"
 })
 
+const token = localStorage.getItem('token')
+console.log(token)
 
-instance.interceptors.response.use(null,error => {
+
+instance.defaults.headers.common["authorization"] = `Bearer ${token}`
+
+
+instance.interceptors.response.use(null, error => {
     console.log(error.response)
-    if (error.response && error.response.status == 403){
-        toast("عدم دسترسی به سرور!")
-        return ;
-    }
-    if (error.response && error.response.status == 404 ){
-        toast("پیدا نشد!")
-        return;
-    }
-    toast("عدم اتصال به سرور!")
+
+    error.response && error.response.data && toast(error.response.data.error,{
+        position:"top-center"
+    })
 })
+
+export const Client = {
+    get: instance.get,
+    post: instance.post,
+    put: instance.put,
+    delete: instance.delete
+}
+
+
