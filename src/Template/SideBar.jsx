@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import {getName} from "../JwtService";
 
 export const SideBar=props=>{
 
@@ -22,7 +23,7 @@ export const SideBar=props=>{
                                     className="img-circle elevation-2" alt="User Image"/>
                             </div>
                             <div className="info">
-                                <a href="#" className="d-block">حسام موسوی</a>
+                                <a href="#" className="d-block">{getName()}</a>
                             </div>
                         </div>
 
